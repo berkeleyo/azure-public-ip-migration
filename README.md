@@ -1,8 +1,9 @@
+# Azure Public IP Migration
+
+Discovery and migration steps from Basic to Standard.
+
+---
 
 # Azure Public IP Migration (Basic → Standard)
 
-Discover Basic PIPs across all subscriptions and plan upgrades to Standard SKU.
-
-```powershell
-./scripts/Find-BasicPIPs.ps1
-```
+Discovery and migration scripts. All org details are redacted.
