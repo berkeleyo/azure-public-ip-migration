@@ -1,0 +1,10 @@
+{
+  "description": "Scripts and guidance for migrating Azure Public IPs from Basic to Standard SKU across subscriptions.",
+  "topics": [
+    "azure",
+    "networking",
+    "public-ip",
+    "migration"
+  ],
+  "created": "2025-10-15"
+}
