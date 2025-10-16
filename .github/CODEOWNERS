@@ -1,0 +1,3 @@
+# CODEOWNERS
+# @berkeleyo owns everything by default; adjust per repo as needed.
+*   @berkeleyo
