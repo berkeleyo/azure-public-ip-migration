@@ -1,18 +1,13 @@
 name: Feature request
-description: Suggest an idea for this project
-labels: ["enhancement"]
+description: Suggest an idea or improvement
+labels: [enhancement]
 body:
   - type: textarea
     id: problem
-    attributes:
-      label: Problem statement
-      description: What problem are you trying to solve?
-    validations:
-      required: true
+    attributes: { label: Problem / context }
   - type: textarea
     id: proposal
-    attributes:
-      label: Proposed solution
-      description: How should this work?
-    validations:
-      required: true
+    attributes: { label: Proposed solution }
+  - type: textarea
+    id: impact
+    attributes: { label: Impact / risks }

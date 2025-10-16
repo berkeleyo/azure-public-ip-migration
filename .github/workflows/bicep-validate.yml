@@ -1,0 +1,19 @@
+name: Bicep Validate
+on:
+  pull_request:
+  push: { branches: [ main, master ] }
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: azure/cli@v2
+      - name: Validate
+        run: |
+          if [ -f "main.bicep" ]; then
+            az bicep build --file main.bicep
+          elif [ -d "bicep" ]; then
+            for f in bicep/*.bicep; do [ -e "$f" ] && az bicep build --file "$f"; done
+          else
+            echo "No bicep files; skip."
+          fi

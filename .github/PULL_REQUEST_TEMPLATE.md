@@ -1,9 +1,7 @@
 ## Summary
--
+What changed and why?
 
-## Testing
--
-
-## Checklist
+## Validation
 - [ ] CI green
-- [ ] Docs updated (if needed)
+- [ ] Tested commands/runbook steps
+- [ ] Backout plan (if applicable)

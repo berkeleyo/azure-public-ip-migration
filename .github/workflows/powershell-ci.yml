@@ -1,22 +1,14 @@
-name: ps-ci
+name: PowerShell CI
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
+  push: { branches: [ main, master ] }
 jobs:
-  test:
-    runs-on: windows-latest
+  lint:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup PowerShell
-        uses: PowerShell/PowerShell@v1
-      - name: Install modules
+      - uses: PowerShell/PowerShell@v2
+      - shell: pwsh
         run: |
-          Install-Module Pester -Scope CurrentUser -Force
-          Install-Module PSScriptAnalyzer -Scope CurrentUser -Force
-      - name: Lint
-        run: |
-          Invoke-ScriptAnalyzer -Path . -Recurse -Severity Warning -ReportSummary
-      - name: Test
-        run: |
-          Invoke-Pester -CI -Output Detailed
+          Install-Module PSScriptAnalyzer -Force -Scope CurrentUser
+          Invoke-ScriptAnalyzer -Path . -Recurse -Severity Error

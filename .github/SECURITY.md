@@ -1,7 +1,4 @@
 # Security Policy
-
-## Supported Versions
-We support the latest version on the default branch.
-
-## Reporting a Vulnerability
-Please DO NOT open a public issue. Email **security@invalid.local** or raise a GitHub Security Advisory on the repository.
+If you believe you've found a security vulnerability, email **security@example.com** with details and repro. 
+We'll acknowledge within 2 business days and target mitigation within 7 business days.
+Please avoid public issues for reports.
