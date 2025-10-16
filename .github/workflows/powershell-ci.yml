@@ -1,0 +1,22 @@
+name: ps-ci
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup PowerShell
+        uses: PowerShell/PowerShell@v1
+      - name: Install modules
+        run: |
+          Install-Module Pester -Scope CurrentUser -Force
+          Install-Module PSScriptAnalyzer -Scope CurrentUser -Force
+      - name: Lint
+        run: |
+          Invoke-ScriptAnalyzer -Path . -Recurse -Severity Warning -ReportSummary
+      - name: Test
+        run: |
+          Invoke-Pester -CI -Output Detailed
