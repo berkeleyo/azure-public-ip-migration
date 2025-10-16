@@ -1,3 +1,3 @@
 # Support
-
-This project is maintained on a best-effort basis. For bugs and feature requests, open a GitHub Issue using the templates.
+Use GitHub Issues for bugs and features. Include version, environment, and steps to reproduce.
+For confidential issues: **support@example.com**.

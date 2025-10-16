@@ -1,0 +1,9 @@
+name: CodeQL
+on:
+  push: { branches: [ main, master ] }
+  pull_request: { branches: [ main, master ] }
+jobs:
+  analyze:
+    permissions: { security-events: write, contents: read, actions: read }
+    uses: github/codeql-action/.github/workflows/codeql.yml@v3
+    with: { languages: powershell }
