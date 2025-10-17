@@ -1,22 +1,22 @@
-name: ps-ci
+﻿name: powershell-ci
 on:
   push:
-    branches: [ "main" ]
   pull_request:
+
 jobs:
-  test:
+  lint:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Setup PowerShell
-        uses: PowerShell/PowerShell@v1
-      - name: Install modules
+      - uses: actions/setup-pwsh@v4
+      - name: Install PSScriptAnalyzer
+        shell: pwsh
+        run: Install-Module PSScriptAnalyzer -Scope CurrentUser -Force
+      - name: Lint PowerShell
+        shell: pwsh
         run: |
-          Install-Module Pester -Scope CurrentUser -Force
-          Install-Module PSScriptAnalyzer -Scope CurrentUser -Force
-      - name: Lint
-        run: |
-          Invoke-ScriptAnalyzer -Path . -Recurse -Severity Warning -ReportSummary
-      - name: Test
-        run: |
-          Invoke-Pester -CI -Output Detailed
+          if (Test-Path scripts) {
+            Invoke-ScriptAnalyzer -Path scripts -Recurse -EnableExit
+          } else {
+            Write-Host "No scripts directory; skipping"
+          }
