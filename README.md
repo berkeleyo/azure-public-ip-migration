@@ -1,4 +1,6 @@
-﻿# Azure Public IP Migration (Basic ➜ Standard)
+﻿[![powershell-ci](https://github.com/berkeleyo/azure-public-ip-migration/actions/workflows/powershell-ci.yml/badge.svg)](https://github.com/berkeleyo/azure-public-ip-migration/actions/workflows/powershell-ci.yml)
+
+# Azure Public IP Migration (Basic ➜ Standard)
 
 Find every Basic SKU Public IP across your subscriptions and migrate them to Standard before retirement.
 
@@ -30,3 +32,4 @@ make migrate PIP_ID="/subscriptions/<sub>/resourceGroups/<rg>/providers/Microsof
 - scripts/enrich-pips.ps1
 - scripts/migrate-pip.ps1
 - scripts/utils.ps1
+
