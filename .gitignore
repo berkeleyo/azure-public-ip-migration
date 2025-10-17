@@ -1,8 +1,2 @@
-.DS_Store
-*.log
-.vscode/
-.idea/
-__pycache__/
+﻿out/
 *.zip
-bin/
-out/
