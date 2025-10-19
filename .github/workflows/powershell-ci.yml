@@ -6,7 +6,7 @@ on:
 
 jobs:
   test:
-    runs-on: windows-latest  # pwsh available; Windows file paths most familiar
+    runs-on: windows-latest
     steps:
       - name: Check out repo
         uses: actions/checkout@v4
@@ -29,16 +29,4 @@ jobs:
             Invoke-ScriptAnalyzer -Path 'scripts' -Recurse -Severity Information,Warning,Error
           } else {
             Write-Host "No scripts folder found; skipping."
-          }
-
-      # Optional: quick help check (non-fatal)
-      - name: Validate script help (best-effort)
-        shell: pwsh
-        continue-on-error: true
-        run: |
-          if (Test-Path 'scripts') {
-            Get-ChildItem scripts -Filter *.ps1 -Recurse | ForEach-Object {
-              Write-Host "==> $_"
-              try { & pwsh -NoProfile -File $_.FullName -? | Out-Null } catch { Write-Host "No help or parameters." }
-            }
           }
