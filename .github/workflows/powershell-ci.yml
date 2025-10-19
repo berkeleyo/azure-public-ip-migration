@@ -1,6 +1,7 @@
-name: ps-ci
+﻿name: ps-ci
 on:
-  push:
+  workflow_dispatch:
+push:
     branches: [ "main" ]
   pull_request:
 jobs:
@@ -20,3 +21,4 @@ jobs:
       - name: Test
         run: |
           Invoke-Pester -CI -Output Detailed
+
