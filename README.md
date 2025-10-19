@@ -1,4 +1,6 @@
 ﻿# Azure Public IP Migration (Basic ➜ Standard)
+ [![ps-ci](https://github.com/berkeleyo/azure-public-ip-migration/actions/workflows/powershell-ci.yml/badge.svg)](https://github.com/berkeleyo/azure-public-ip-migration/actions/workflows/powershell-ci.yml)
+
 
 Discover, assess, and migrate **Azure Public IPs** from **Basic** to **Standard** at scale — safely and reproducibly.
 
